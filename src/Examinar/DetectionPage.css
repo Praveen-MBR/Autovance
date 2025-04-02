@@ -1,0 +1,85 @@
+.detection-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #f8f9fa;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .video-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .video-controls button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .video-controls button:hover {
+    background: #0056b3;
+  }
+  
+  .start-detection-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .start-detection-btn:hover {
+    background: #218838;
+  }
+  
+  .results-box {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  .result {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .pass {
+    color: green;
+  }
+  
+  .fail {
+    color: red;
+  }
+  
+  /* Send Result Button (Bottom Right) */
+  .send-result-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .send-result-btn:hover {
+    background: #e64a19;
+  }
+  

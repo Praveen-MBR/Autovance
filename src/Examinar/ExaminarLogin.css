@@ -1,0 +1,67 @@
+.examinar-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.examinar-login-box {
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  width: 1000px;
+  height: 700px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.examinar-login-box h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.examinar-login-box label {
+  display: block;
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin: 20px 0 10px;
+}
+
+.examinar-login-box input {
+  width: 90%;
+  padding: 15px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  transition: border 0.3s;
+}
+
+.examinar-login-box input:focus {
+  border: 2px solid #2575fc;
+  outline: none;
+}
+
+.examinar-login-box button {
+  width: 90%;
+  padding: 18px;
+  font-size: 22px;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.examinar-login-box button:hover {
+  background-color: #1a5dbd;
+}
