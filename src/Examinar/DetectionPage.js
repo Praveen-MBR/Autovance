@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./DetectionPage.css";
 
 const DetectionPage = () => {
   const location = useLocation();
-  const recordedVideo = location.state?.recordedVideo || null; // Get recorded video
+  const navigate = useNavigate(); // Fix: Use useNavigate instead of Navigate
+  const recordedVideo = location.state?.recordedVideo || null;
 
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -13,7 +14,6 @@ const DetectionPage = () => {
   const [lSignAccuracy, setLSignAccuracy] = useState(null);
   const [result, setResult] = useState("");
 
-  // Play/Pause Video
   const handlePlayPause = () => {
     if (videoRef.current.paused) {
       videoRef.current.play();
@@ -24,34 +24,28 @@ const DetectionPage = () => {
     }
   };
 
-  // Start Detection Process
   const handleStartDetection = () => {
     setIsDetecting(true);
 
-    // Simulating AI Detection with Fake Accuracy
     setTimeout(() => {
       const vehicleAcc = Math.floor(Math.random() * 21) + 80; // 80-100%
       const lSignAcc = Math.floor(Math.random() * 21) + 70; // 70-100%
       setVehicleAccuracy(vehicleAcc);
       setLSignAccuracy(lSignAcc);
 
-      // Determine Pass or Fail
       setResult(vehicleAcc >= 90 && lSignAcc >= 85 ? "PASS" : "FAIL");
-
       setIsDetecting(false);
-    }, 3000); // Simulate 3 sec detection time
+    }, 3000);
   };
 
-  // Send Result Function
   const handleSendResult = () => {
-    alert(`Result Sent!\nStatus: ${result}\nVehicle Accuracy: ${vehicleAccuracy}%\nL-Sign Accuracy: ${lSignAccuracy}%`);
+    navigate("/resultspage"); // Fix: Use navigate function correctly
   };
 
   return (
     <div className="detection-container">
       <h1>Detection Session</h1>
 
-      {/* Video Player */}
       <div className="video-box">
         {recordedVideo ? (
           <video ref={videoRef} width="600">
@@ -63,21 +57,18 @@ const DetectionPage = () => {
         )}
       </div>
 
-      {/* Play/Pause Buttons */}
       <div className="video-controls">
         <button onClick={handlePlayPause}>
           {isPlaying ? "Pause" : "Play"}
         </button>
       </div>
 
-      {/* Start Detection Button */}
       {!vehicleAccuracy && (
         <button onClick={handleStartDetection} className="start-detection-btn">
           {isDetecting ? "Detecting..." : "Start Detection"}
         </button>
       )}
 
-      {/* Show Detection Results */}
       {vehicleAccuracy && (
         <div className="results-box">
           <p><strong>Vehicle Accuracy:</strong> {vehicleAccuracy}%</p>
@@ -86,7 +77,6 @@ const DetectionPage = () => {
             <h2>{result}</h2>
           </div>
 
-          {/* Send Result Button (Bottom Right) */}
           <button onClick={handleSendResult} className="send-result-btn">
             Send Result
           </button>

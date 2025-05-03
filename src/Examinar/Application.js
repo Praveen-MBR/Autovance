@@ -11,7 +11,7 @@ const Application = ({ onClose }) => {
     e.preventDefault();
 
     navigate("/preview", { state: { candidateName, candidateID } });
-    onClose(); 
+    if (onClose)onClose(); 
   };
 
   return (
